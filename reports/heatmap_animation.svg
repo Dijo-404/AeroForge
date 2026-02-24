@@ -1,7 +1,7 @@
 <svg width="400" height="400" xmlns="http://www.w3.org/2000/svg">
         <rect width="100%" height="100%" fill="#1a1a1a" />
-        <circle cx="200" cy="200" r="200" fill="red" opacity="0.8">
-            <animate attributeName="r" values="50;200;50" dur="2s" repeatCount="indefinite" />
+        <circle cx="200" cy="200" r="104.32000000000001" fill="green" opacity="0.8">
+            <animate attributeName="r" values="50;104.32000000000001;50" dur="2s" repeatCount="indefinite" />
         </circle>
-        <text x="200" y="50" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Stress Map: 975.0 MPa</text>
+        <text x="200" y="50" font-family="Arial" font-size="20" fill="white" text-anchor="middle">Stress Map: 1150.3 MPa</text>
     </svg>
