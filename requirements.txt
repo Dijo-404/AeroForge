@@ -1,0 +1,6 @@
+google-genai>=0.1.0
+google-cloud-aiplatform>=1.40.0
+pycalphad>=0.10.4
+ansys-mapdl-core>=0.68.0
+xarray>=2024.1.0
+pytest>=8.0.0

@@ -1,0 +1,2 @@
+[Charon - Informative]: The target matrix selected was ['Ti', 'Al', 'V']. 
+    [Sadaltager - Knowledgeable]: Simulation indicates max displacement at 34.0 mm.
