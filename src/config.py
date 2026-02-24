@@ -8,8 +8,9 @@ class Settings(BaseSettings):
     VERTEX_DATA_STORE_ID: str = os.getenv("VERTEX_DATA_STORE_ID", "mock-data-store-id")
     
     # ADK / Gemini Configuration
-    GEMINI_MODEL: str = "gemini-3.1-pro"
+    GEMINI_MODEL: str = "gemini-2.5-pro"
+    GEMINI_API_KEY: str = ""
     
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
+    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", extra="ignore")
 
 settings = Settings()

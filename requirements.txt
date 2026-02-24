@@ -4,3 +4,4 @@ pycalphad>=0.10.4
 ansys-mapdl-core>=0.68.0
 xarray>=2024.1.0
 pytest>=8.0.0
+pydantic-settings>=2.0.0

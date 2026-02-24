@@ -10,12 +10,31 @@ class CompositionAgent(BaseAgent):
     def generate(self, session_state: dict):
         print(f"[{self.name}] Generating formulation using deep thinking (thinking_level={self.thinking_level})")
         research = session_state.get("research_plan", {})
-        elements = research.get("suggested_elements", ["Fe", "C"])
-        
-        proposed_alloy = {
-            "matrix": elements,
-            "target_temp_K": 1000
-        }
+        try:
+            from google import genai
+            from google.genai import types
+            from src.config import settings
+            
+            client = genai.Client(vertexai=True, project=settings.PROJECT_ID, location=settings.LOCATION)
+            response = client.models.generate_content(
+                model=settings.GEMINI_MODEL,
+                contents=f"Given this research matrix, generate a high-performance alloy composition matrix and an estimated optimal operating temperature: {json.dumps(research)}",
+                config=types.GenerateContentConfig(
+                    system_instruction="You are an expert aerospace formulations AI. Output ONLY valid JSON containing two keys: 'matrix' (list of string atomic symbols like ['Ti', 'Al']) and 'target_temp_K' (integer, optimal Kelvin).",
+                    response_mime_type="application/json",
+                ),
+            )
+            
+            proposed_alloy = json.loads(response.text)
+            
+        except Exception as e:
+            print(f"[{self.name}] API Error: {e}. Falling back to default mock array.")
+            elements = research.get("suggested_elements", ["Fe", "C"])
+            proposed_alloy = {
+                "matrix": elements,
+                "target_temp_K": 1000
+            }
+            
         session_state["proposed_alloy"] = proposed_alloy
         return session_state
 
