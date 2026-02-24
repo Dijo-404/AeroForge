@@ -55,7 +55,7 @@ def calculate_phase_equilibrium(elements: list[str], temperature: float, pressur
             "temperature_K": temperature,
             "pressure_Pa": pressure,
             "stable_phases": stable_phases,
-            "is_stable": is_stable and len(stable_phases) > 0
+            "is_stable": is_stable
         }
         return json.dumps(result)
         
